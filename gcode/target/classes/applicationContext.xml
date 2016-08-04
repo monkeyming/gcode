@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns:tx="http://www.springframework.org/schema/tx" 
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:aop="http://www.springframework.org/schema/aop"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans 
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd
+      http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+      http://www.springframework.org/schema/tx 
+      http://www.springframework.org/schema/tx/spring-tx-3.0.xsd" >
+
+
+	<context:component-scan base-package="com.simple.gcode"/>
+ 
+    <bean class="com.simple.gcode.utils.BaseConfig">
+        <!--  
+    	<property name="entityPath" value="E:/项目/weiqi/bluepoint-weiqi-api/src/"/>
+    	<property name="mapperXmlPath" value="E:/项目/weiqi/bluepoint-weiqi-service/src/"/>
+    	<property name="entityPath" value="F:/code-src/src/"/>
+    	<property name="mapperXmlPath" value="F:/code-src/src/"/>
+    	-->
+    </bean>
+    
+    <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">  
+	    <property name="templateLoaderPath" value="classpath:"/>  
+	    <property name="freemarkerSettings">  
+	        <props>  
+	            <prop key="template_update_delay">0</prop>  
+	            <prop key="defaultEncoding">utf-8</prop>  
+	        </props>  
+	    </property>  
+	</bean>    
+
+</beans>	
