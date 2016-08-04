@@ -1,5 +1,5 @@
 package ${package}.impl;
-
+import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import ${package}.${className}Service;
 import ${entitypackage}.${className};
@@ -11,15 +11,16 @@ import ${entitypackage}.${className};
 @Service
 public class ${className}ServiceImpl implements ${className}Service
 {
+	@Resource
    	${className}Mapper ${varClassName}Mapper;
    	public int insert(${className} ${varClassName}){
    		return ${varClassName}Mapper.insert(${varClassName});
    	} 
 
-	public ${className} selectByPrimaryKey(long id){
+	public ${className} findById(long id){
 		return ${varClassName}Mapper.selectByPrimaryKey(id);
 	} 
-	public ${className} selectByPrimaryKey(int id){
+	public ${className} findById(int id){
 		return ${varClassName}Mapper.selectByPrimaryKey(id);
 	} 
 
