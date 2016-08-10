@@ -101,16 +101,6 @@
 	update  ${table} set dr = 1  where  ${entity.primaryKey} = ${jh}{${fieldPrimaryKey},jdbcType=BIGINT}
    </update>
    
-   <select id="findByNamedParam" resultMap="BaseResultMap">
-    select *  from   ${table}
-    <trim prefix="where" prefixOverrides="AND |OR "> 
-	   <#list columns as column>
-          <if test="@${ognlClass}@isNotEmpty(${column.columnNameLower})">and ${column.columnName} = ${jh}{${column.columnNameLower},jdbcType=${column.colType}}</if>
-       </#list>
-	</trim>
-	limit 1
-   </select>
-   
    <select id="findByNamedParamList" resultMap="BaseResultMap">
     select *  from   ${table}
     <trim prefix="where" prefixOverrides="AND |OR "> 

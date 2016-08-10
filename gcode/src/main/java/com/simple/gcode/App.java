@@ -21,8 +21,8 @@ public class App {
 		generatorEntity();
 		generatorMapperXml();
 		generatorMapperInterface();
-		generateService();
-		generateServiceImpl();
+//		generateService();
+//		generateServiceImpl();
 	}
 
 	private static void generateServiceImpl() {
