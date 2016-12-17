@@ -7,7 +7,7 @@ import ${entitypackage}.${className};
  * create by Zero
 */
 
-public interface ${className}Service extends BaseMapper<${className}>
+public interface ${className}Service extends Base<${className}>
 {
 
 }

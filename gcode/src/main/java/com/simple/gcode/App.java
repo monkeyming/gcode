@@ -20,9 +20,9 @@ public class App {
 	public static void main(String[] args) {
 		generatorEntity();
 		generatorMapperXml();
-		generatorMapperInterface();
-		generateService();
-		generateServiceImpl();
+//		generatorMapperInterface();
+//		generateService();
+//		generateServiceImpl();
 	}
 
 	private static void generateServiceImpl() {

@@ -6,7 +6,7 @@ package ${package};
  * @Date ${.now} 
 */ 
 
-public interface ${className}Mapper extends BaseMapper<${className}>
+public interface ${className}Mapper extends Base<${className}>
 {
 
 	

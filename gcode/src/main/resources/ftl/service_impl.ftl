@@ -17,15 +17,16 @@ public class ${className}ServiceImpl implements ${className}Service
    		return ${varClassName}Mapper.insert(${varClassName});
    	} 
 
-	public ${className} findById(long id){
+	public ${className} selectByPrimaryKey(long id){
 		return ${varClassName}Mapper.selectByPrimaryKey(id);
 	} 
-	public ${className} findById(int id){
-		return ${varClassName}Mapper.selectByPrimaryKey(id);
-	} 
+	
 
-	public List<${className}> selectAllInfo(){
-		return ${varClassName}Mapper.selectAllInfo();
+	public ${className} findByNamedParam(HashMap<String,Object> hashMap){
+		return ${varClassName}Mapper.findByNamedParam(hashMap);
+	} 
+	public List<${className}> findAll(HashMap<String,Object> hashMap){
+		return ${varClassName}Mapper.findAll(hashMap);
 	} 
 
 	public List<${className}> selectPageInfo(HashMap<String,Object> hashMap){
