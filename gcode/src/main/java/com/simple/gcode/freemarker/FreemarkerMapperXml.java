@@ -22,10 +22,11 @@ import com.simple.gcode.utils.EntityProperties;
 import com.simple.gcode.utils.NameConverter;
 
 /**
- * 生成mybatis的xml映射文件
  * 
+ * FreemarkerMapperXml.java
+ * @description 生成mybatis的xml映射文件 
  * @author ldm
- * @Date 2016年8月4日
+ * @date 2016年12月18日
  */
 public class FreemarkerMapperXml extends FreemarkerService {
 	public static void run(BaseConfig baseConfig, FreeMarkerConfigurer freeMarkerConfigurer) throws Exception {

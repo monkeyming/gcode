@@ -22,10 +22,11 @@ import com.simple.gcode.utils.NameConverter;
 import com.simple.gcode.utils.Utilities;
 
 /**
- * 用于生成service接口的实现类的 无需配置
  * 
- * @author Administrator
- *
+ * FreemarkerBOImpl.java
+ * @description 用于生成service接口的实现类的 无需配置 
+ * @author ldm
+ * @date 2016年12月18日
  */
 public class FreemarkerBOImpl extends FreemarkerService {
 	public static void run(BaseConfig baseConfig, FreeMarkerConfigurer freeMarkerConfigurer) throws Exception {

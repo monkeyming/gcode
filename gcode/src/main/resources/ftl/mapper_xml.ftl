@@ -63,27 +63,6 @@
 	</trim>
     order  by  ${entity.primaryKey}  desc    limit 1
    </select>
-   
-   <select id="findAll" resultMap="BaseResultMap">
-	select *  from ${table} 
-    <trim prefix="where" prefixOverrides="and |or "> 
-	    <#list columns as column>
-          <if test="@${ognlClass}@isNotEmpty(${column.columnNameLower})">and ${column.columnName} = ${jh}{${column.columnNameLower},jdbcType=${column.colType}}</if>
-       </#list>  
-	</trim>
-	order  by  ${entity.primaryKey}  desc 
-   </select>
-   
-   <select id="findPageInfo" resultMap="BaseResultMap">
-	select *  from ${table} 
-	<trim prefix="where" prefixOverrides="and |or "> 
-	    <#list columns as column>
-          <if test="@${ognlClass}@isNotEmpty(${column.columnNameLower})">and ${column.columnName} = ${jh}{${column.columnNameLower},jdbcType=${column.colType}}</if>
-       </#list>  
-	</trim>
-	order  by ${entity.primaryKey} desc limit  ${start},${end}
-   </select>
-   
    <select id="count"  resultType="int">
 	 select count(*)  from ${table}   
 	 <trim prefix="where" prefixOverrides="and |or "> 
@@ -97,9 +76,7 @@
 	delete  from ${table} where  ${entity.primaryKey} =  ${jh}{${fieldPrimaryKey},jdbcType=BIGINT}
    </delete>
 	
-   <update id="remove" parameterType="java.lang.Long">
-	update  ${table} set dr = 1  where  ${entity.primaryKey} = ${jh}{${fieldPrimaryKey},jdbcType=BIGINT}
-   </update>
+ 
    
    <select id="findByNamedParamList" resultMap="BaseResultMap">
     select *  from   ${table}

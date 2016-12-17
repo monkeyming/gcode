@@ -19,10 +19,12 @@ import com.simple.gcode.utils.EntityBean;
 import freemarker.template.Template;
 
 /**
- * 配置连接信息 以及数据库数据类型对应的java数据类型
  * 
- * @author Administrator
+ * FreemarkerService.java
  * 
+ * @description 配置连接信息 以及数据库数据类型对应的java数据类型
+ * @author ldm
+ * @date 2016年12月18日
  */
 public abstract class FreemarkerService {
 
@@ -70,7 +72,7 @@ public abstract class FreemarkerService {
 	}
 
 	/**
-	 * 棣栧瓧姣嶅ぇ鍐�
+	 * 首字母转为大写
 	 * 
 	 * @param str
 	 * @return

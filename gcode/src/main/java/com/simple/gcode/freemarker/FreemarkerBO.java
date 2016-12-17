@@ -21,10 +21,11 @@ import com.simple.gcode.utils.EntityBean;
 import com.simple.gcode.utils.NameConverter;
 
 /**
- * 用于生成service接口 不需配置
  * 
- * @author Administrator
- *
+ * FreemarkerBO.java
+ * @description 用于生成service接口 不需配置
+ * @author ldm
+ * @date 2016年12月18日
  */
 public class FreemarkerBO extends FreemarkerService {
 	public static void run(BaseConfig baseConfig, FreeMarkerConfigurer freeMarkerConfigurer) throws Exception {

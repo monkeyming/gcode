@@ -24,10 +24,11 @@ import com.simple.gcode.utils.EntityProperties;
 import com.simple.gcode.utils.NameConverter;
 
 /**
- * 用于生成实体类 无需配置
  * 
- * @author Administrator
- * 
+ * FreemarkerEntityImpl.java
+ * @description 用于生成实体类 无需配置 
+ * @author ldm
+ * @date 2016年12月18日
  */
 public class FreemarkerEntityImpl extends FreemarkerService {
 

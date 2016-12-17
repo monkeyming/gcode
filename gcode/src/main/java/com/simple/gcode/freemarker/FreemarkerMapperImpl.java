@@ -21,10 +21,11 @@ import com.simple.gcode.utils.EntityBean;
 import com.simple.gcode.utils.NameConverter;
 
 /**
- * 生成mybatis操作接口文件
  * 
+ * FreemarkerMapperImpl.java
+ * @description 生成mybatis操作接口文件 
  * @author ldm
- * @Date 2016年8月4日
+ * @date 2016年12月18日
  */
 public class FreemarkerMapperImpl extends FreemarkerService {
 	public static void run(BaseConfig baseConfig, FreeMarkerConfigurer freeMarkerConfigurer) throws Exception
