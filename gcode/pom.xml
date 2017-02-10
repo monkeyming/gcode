@@ -35,6 +35,13 @@
 	</build>
 
 	<dependencies>
+	
+		<!-- https://mvnrepository.com/artifact/com.microsoft/sqljdbc4 -->
+		<dependency>
+			<groupId>com.microsoft</groupId>
+			<artifactId>sqljdbc4</artifactId>
+			<version>3.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>

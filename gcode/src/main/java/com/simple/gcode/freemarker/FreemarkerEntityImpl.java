@@ -26,7 +26,8 @@ import com.simple.gcode.utils.NameConverter;
 /**
  * 
  * FreemarkerEntityImpl.java
- * @description 用于生成实体类 无需配置 
+ * 
+ * @description 用于生成实体类 无需配置
  * @author ldm
  * @date 2016年12月18日
  */
@@ -37,7 +38,7 @@ public class FreemarkerEntityImpl extends FreemarkerService {
 		Class.forName(driver);
 		Connection connection = DriverManager.getConnection(url, user, password);
 		DatabaseMetaData dbmd = connection.getMetaData();
-		ResultSet resultSet = dbmd.getTables(null, null, null, null);
+		ResultSet resultSet = dbmd.getTables(null, null, null, new String[] { "TABLE" });
 		List<String> listTb = new ArrayList<String>();
 
 		// 设置要过滤的表
@@ -77,13 +78,14 @@ public class FreemarkerEntityImpl extends FreemarkerService {
 				entityProperties.setRemarks(remarks[i]);
 				list.add(entityProperties);
 			}
-			
+
 			data.put("package", ConfigUtils.read("ftl.entity.package"));
 			data.put("columns", list);
 			data.put("datetime", DateFormatUtils.format(new Date(), "yyyy-MM-dd HH:mm:ss"));
 			/*************************************************************/
 			entityBean.setFileName(entityBean.getClassName());
-			freemarkerService.createJavaFile(data, "ftl/"+ConfigUtils.read("ftl.entity.name")+".ftl", entityBean, baseConfig, freeMarkerConfigurer);
+			freemarkerService.createJavaFile(data, "ftl/" + ConfigUtils.read("ftl.entity.name") + ".ftl", entityBean,
+					baseConfig, freeMarkerConfigurer);
 		}
 
 	}

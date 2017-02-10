@@ -19,10 +19,10 @@ import com.simple.gcode.utils.ConfigUtils;
 public class App {
 	public static void main(String[] args) {
 		generatorEntity();
-		generatorMapperXml();
-//		generatorMapperInterface();
-//		generateService();
-//		generateServiceImpl();
+		 generatorMapperXml();
+		 generatorMapperInterface();
+		// generateService();
+		// generateServiceImpl();
 	}
 
 	private static void generateServiceImpl() {

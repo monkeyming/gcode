@@ -28,18 +28,22 @@ import freemarker.template.Template;
  */
 public abstract class FreemarkerService {
 
-	public static String url = ConfigUtils.read("db.url");
+	public static String url = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.url")
+			: ConfigUtils.read("db.sqlserver.url");
 
-	public static String user = ConfigUtils.read("db.username");
+	public static String user = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.username")
+			: ConfigUtils.read("db.sqlserver.username");
 
-	public static String password = ConfigUtils.read("db.password");
+	public static String password = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.password")
+			: ConfigUtils.read("db.sqlserver.password");
 
-	public static String driver = ConfigUtils.read("db.driver");
+	public static String driver = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.driver")
+			: ConfigUtils.read("db.sqlserver.driver");
 
 	public static void setEntityBean(DatabaseMetaData dbmd, ResultSetMetaData rsmd, EntityBean entityBean, String tb,
 			int size, String[] colnames, String[] colTypes, String[] remarks) {
 		try {
-			ResultSet columnSet = dbmd.getColumns(null, "%", tb, "%");
+			ResultSet columnSet = dbmd.getColumns(null, "%", tb, "%"); // 获取一个表的所有的列
 			int k = 0;
 			while (columnSet.next()) {
 

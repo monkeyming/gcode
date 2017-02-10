@@ -23,7 +23,8 @@ import com.simple.gcode.utils.NameConverter;
 /**
  * 
  * FreemarkerMapperImpl.java
- * @description 生成mybatis操作接口文件 
+ * 
+ * @description 生成mybatis操作接口文件
  * @author ldm
  * @date 2016年12月18日
  */
@@ -35,7 +36,7 @@ public class FreemarkerMapperImpl extends FreemarkerService {
 		Class.forName(driver);
 		Connection connection = DriverManager.getConnection(url, user, password);
 		DatabaseMetaData dbmd = connection.getMetaData();
-		ResultSet resultSet = dbmd.getTables(null, null, null, null);
+		ResultSet resultSet = dbmd.getTables(null, null, null, new String[] { "TABLE" });
 		List<String> listTb = new ArrayList<String>();
 		String tableTag = ConfigUtils.read("table.tag");
 		while (resultSet.next()) {
@@ -65,13 +66,13 @@ public class FreemarkerMapperImpl extends FreemarkerService {
 			data.put("className", entityBean.getClassName());
 			data.put("classNameParam", NameConverter.toJavaCase(tb));
 			data.put("primaryKey", NameConverter.toJavaCase(entityBean.getPrimaryKey()));
-			
+
 			data.put("package", ConfigUtils.read("ftl.dao.package"));
 			/*************************************************************/
 			entityBean.setFileName(entityBean.getClassName() + "Mapper");
 			/*************************************************************/
-			freemarkerService.createJavaFile(data, "ftl/"+ConfigUtils.read("ftl.dao.name") + ".ftl", entityBean, baseConfig,
-					freeMarkerConfigurer);
+			freemarkerService.createJavaFile(data, "ftl/" + ConfigUtils.read("ftl.dao.name") + ".ftl", entityBean,
+					baseConfig, freeMarkerConfigurer);
 		}
 
 	}

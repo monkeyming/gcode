@@ -34,7 +34,7 @@ public class FreemarkerMapperXml extends FreemarkerService {
 		Class.forName(driver);
 		Connection connection = DriverManager.getConnection(url, user, password);
 		DatabaseMetaData dbmd = connection.getMetaData();
-		ResultSet resultSet = dbmd.getTables(null, null, null, null);
+		ResultSet resultSet = dbmd.getTables(null, null, null, new String[] { "TABLE" });
 		List<String> listTb = new ArrayList<String>();
 		// 设置要过滤的表
 		String tableTag = ConfigUtils.read("table.tag");
