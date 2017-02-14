@@ -1,4 +1,5 @@
 package com.simple.gcode.utils;
+
 /**
  * 
  * @author ldm
@@ -7,6 +8,14 @@ package com.simple.gcode.utils;
 public class NameConverter {
 	/**
 	 * 数据库命名方式转换成java的命名方式
+	 * </p>
+	 * 驼峰命名方式：数据库字段和表以 _ 作为单词分隔符，遇到分隔符的时候，会将字母大写
+	 * </p>
+	 * 如：
+	 * <ul>
+	 * <li>数据库字段名：test_field</li>
+	 * <li>java类属性字段名：testField</li>
+	 * </ul>
 	 * 
 	 * @param s
 	 * @return
@@ -15,7 +24,7 @@ public class NameConverter {
 		if (s == null || s.trim().length() == 0)
 			return s;
 		// 去掉第一个下划线及其前面的字母
-		//s = s.substring(s.indexOf("_") + 1);
+		// s = s.substring(s.indexOf("_") + 1);
 		StringBuffer sb = new StringBuffer();
 		String[] array = s.split("_");
 		boolean firstTime = true;
@@ -25,8 +34,7 @@ public class NameConverter {
 			else if (e.length() == 1)
 				sb.append(!firstTime ? e.toUpperCase() : e);
 			else
-				sb.append(!firstTime ? (e.substring(0, 1).toUpperCase() + e
-						.substring(1)) : e);
+				sb.append(!firstTime ? (e.substring(0, 1).toUpperCase() + e.substring(1)) : e);
 			firstTime = false;
 		}
 		return sb.toString();

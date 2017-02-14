@@ -47,7 +47,7 @@ public abstract class FreemarkerService {
 			int k = 0;
 			while (columnSet.next()) {
 
-				String columnComment = columnSet.getString("REMARKS");
+				String columnComment = columnSet.getString("REMARKS") == null ? "" : columnSet.getString("REMARKS");
 				remarks[k] = columnComment;
 				k++;
 			}
@@ -128,6 +128,11 @@ public abstract class FreemarkerService {
 		}
 	}
 
+	/**
+	 * 将sql数据类型转为java数据类型
+	 * @param sqlType
+	 * @return
+	 */
 	public static String sqlType2JavaType(String sqlType) {
 		System.out.println("sqlType  = " + sqlType);
 		if (sqlType.equalsIgnoreCase("bit")) {
@@ -136,17 +141,16 @@ public abstract class FreemarkerService {
 			return "byte";
 		} else if (sqlType.equalsIgnoreCase("smallint")) {
 			return "short";
-		} else if (sqlType.equalsIgnoreCase("integer"))// 宸茬粡鍙樻崲mybatis绫诲瀷
-		{
-			return "int";
+		} else if (sqlType.equalsIgnoreCase("integer") || sqlType.equalsIgnoreCase("int")) {
+			return "Integer";
 		} else if (sqlType.equalsIgnoreCase("bigint")) {
-			return "long";
+			return "Long";
 		} else if (sqlType.equalsIgnoreCase("float")) {
-			return "float";
+			return "Float";
 		} else if (sqlType.equalsIgnoreCase("double") || sqlType.equalsIgnoreCase("decimal")
 				|| sqlType.equalsIgnoreCase("numeric") || sqlType.equalsIgnoreCase("real")
 				|| sqlType.equalsIgnoreCase("money") || sqlType.equalsIgnoreCase("smallmoney")) {
-			return "double";
+			return "Double";
 		} else if (sqlType.equalsIgnoreCase("varchar") || sqlType.equalsIgnoreCase("char")
 				|| sqlType.equalsIgnoreCase("nvarchar") || sqlType.equalsIgnoreCase("nchar")
 				|| sqlType.equalsIgnoreCase("text")) {
@@ -156,7 +160,6 @@ public abstract class FreemarkerService {
 		} else if (sqlType.equalsIgnoreCase("date")) {
 			return "Date";
 		} else if (sqlType.equalsIgnoreCase("timestamp")) {
-
 			return "Date";
 		} else if (sqlType.equalsIgnoreCase("image")) {
 			return "Blod";

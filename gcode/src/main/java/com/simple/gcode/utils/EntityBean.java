@@ -4,8 +4,11 @@ import java.io.Serializable;
 
 /**
  * 
+ * EntityBean.java
+ * 
+ * @description 表结构实体对象
  * @author ldm
- * @Date 2016年8月4日
+ * @date 2017年2月15日
  */
 public class EntityBean implements Serializable {
 
