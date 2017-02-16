@@ -28,16 +28,16 @@ import freemarker.template.Template;
  */
 public abstract class FreemarkerService {
 
-	public static String url = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.url")
+	public static String url = ConfigUtils.read("dbType").equals("mysql") ? ConfigUtils.read("db.url")
 			: ConfigUtils.read("db.sqlserver.url");
 
-	public static String user = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.username")
+	public static String user = ConfigUtils.read("dbType").equals("mysql") ? ConfigUtils.read("db.username")
 			: ConfigUtils.read("db.sqlserver.username");
 
-	public static String password = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.password")
+	public static String password = ConfigUtils.read("dbType").equals("mysql") ? ConfigUtils.read("db.password")
 			: ConfigUtils.read("db.sqlserver.password");
 
-	public static String driver = ConfigUtils.read("dbType") == "mysql" ? ConfigUtils.read("db.driver")
+	public static String driver = ConfigUtils.read("dbType").equals("mysql") ? ConfigUtils.read("db.driver")
 			: ConfigUtils.read("db.sqlserver.driver");
 
 	public static void setEntityBean(DatabaseMetaData dbmd, ResultSetMetaData rsmd, EntityBean entityBean, String tb,
@@ -130,6 +130,7 @@ public abstract class FreemarkerService {
 
 	/**
 	 * 将sql数据类型转为java数据类型
+	 * 
 	 * @param sqlType
 	 * @return
 	 */
